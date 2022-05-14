@@ -1,0 +1,71 @@
+import React, {useEffect, useState} from 'react';
+import './App.css';
+import axios from 'axios';
+
+import Card from './components/Card/Card.js';
+
+const App = () => {
+const [level, setLevel] = useState("1");
+const [welcome, setWelcome] = useState(true);
+const [contents, setContents] = useState(null);
+const [score, setScore] = useState(0);
+console.log(level);
+const getGameplayWords = () => {
+  const options = {
+    method: 'GET',
+    url: 'https://twinword-word-association-quiz.p.rapidapi.com/type1/',
+    params: {level: level, area: 'sat'},
+    headers: {
+      'X-RapidAPI-Host': 'twinword-word-association-quiz.p.rapidapi.com',
+      'X-RapidAPI-Key': 'a1464763b5msh09429d0578a9067p13fbeajsn7db5531fecef'
+    }
+  };
+
+  axios.request(options).then(function (response) {
+  	console.log(response.data);
+    setContents(response.data);
+  }).catch(function (error) {
+  	console.error(error);
+  });
+};
+useEffect(() => {
+  getGameplayWords();
+}, [level])
+useEffect(() => {
+  document.addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+      setWelcome(false);
+    }
+  })
+})
+const updateScore = () => {
+  setScore(score + 1);
+}
+  return (
+    <>
+    <div className="App">
+    <h1>Word Quiz Game</h1>
+    {welcome && <p>Pick a level to play!</p>}
+    {!welcome && <p>Your current score is {score}</p>}
+    <select className="LevelMenu" id="LevelMenu" onChange={(e) => setLevel(e.target.value)}>
+    <option value={"1"}>Level 1</option>
+    <option value={"2"}>Level 2</option>
+    <option value={"3"}>Level 3</option>
+    <option value={"4"}>Level 4</option>
+    <option value={"5"}>Level 5</option>
+    <option value={"6"}>Level 6</option>
+    <option value={"7"}>Level 7</option>
+    <option value={"8"}>Level 8</option>
+    <option value={"9"}>Level 9</option>
+    <option value={"10"}>Level 10</option>
+    </select>
+    {welcome && <h1>Press Enter to play at level {level}</h1>}
+    {!welcome && <div className="Row">
+    {contents && contents.quizlist.map((question, questionIndex) => (<Card key={questionIndex} index={questionIndex} correct={question.correct} quiz={question.quiz} options={question.option} updateScore={updateScore} />))}
+    </div>}
+    </div>
+    </>
+  );
+}
+
+export default App;

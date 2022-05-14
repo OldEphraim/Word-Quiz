@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+
+@media only screen and (min-width: 768px) {
+.Card {
+  margin: 10px;
+  background-color: antiquewhite;
+  padding: 10px;
+  border-radius: 20px;
+  width: 15%;
+  height: 200px;
+}
+
+.Answers {
+  display: flex;
+  flex-direction: row;
+}
+}
+
+@media only screen and (max-width: 768px) {
+  .Card {
+    margin: 10px;
+    background-color: antiquewhite;
+    padding: 10px;
+    border-radius: 20px;
+    width: 90%;
+    height: 280px;
+  }
+
+  .Answers {
+    text-align: center;
+  }
+}
+
+.Correct {
+  font-family: "Oleo Script Swash Caps";
+  font-size: 16px;
+}
+
+button {
+  margin: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  background-color: darkcyan;
+  color: white;
+  font-family: "Titillium Web";
+}
+
+button:disabled {
+  background-color: darkgray;
+}
