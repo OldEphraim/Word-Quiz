@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './Card.css';
 
-const Card = ({correct, quiz, options, updateScore, index}) => {
+const Card = ({correct, quiz, options, updateScore, index, updateNumberGuessed}) => {
   const [clicked, setClicked] = useState([]);
   const [correctly, setCorrectly] = useState([]);
   const firstHint = quiz[0];
