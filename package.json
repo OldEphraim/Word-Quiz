@@ -1,7 +1,7 @@
 {
   "name": "word-game",
   "version": "0.1.0",
-  "homepage": "https://OldEphraim.github.io/Word-Quiz"
+  "homepage": "https://OldEphraim.github.io/Word-Quiz",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
