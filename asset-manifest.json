@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Word-Quiz/static/css/main.3bc7749b.css",
+    "main.js": "/Word-Quiz/static/js/main.f293e29f.js",
+    "index.html": "/Word-Quiz/index.html",
+    "main.3bc7749b.css.map": "/Word-Quiz/static/css/main.3bc7749b.css.map",
+    "main.f293e29f.js.map": "/Word-Quiz/static/js/main.f293e29f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3bc7749b.css",
+    "static/js/main.f293e29f.js"
+  ]
+}
