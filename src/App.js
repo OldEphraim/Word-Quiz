@@ -32,6 +32,13 @@ useEffect(() => {
   getGameplayWords();
 }, [level])
 useEffect(() => {
+  window.scroll({
+    top: 0,
+    left: 0,
+    behavior: "smooth"
+  });
+}, [showGameOver])
+useEffect(() => {
   document.addEventListener("keydown", event => {
     if (event.key === "Enter") {
       setWelcome(false);
@@ -41,10 +48,6 @@ useEffect(() => {
 const updateScore = () => {
   setScore(score + 1);
 }
-const pressEnter = () => {
-  setWelcome(false);
-};
-console.log(score);
   return (
     <>
     <div className="App">
@@ -64,7 +67,7 @@ console.log(score);
     <option value={"10"}>Level 10</option>
     </select>}
     {welcome && !showGameOver && <h1>Please choose a level and press Enter to play.</h1>}
-    {welcome && !showGameOver && <button className="EndGame" onClick={pressEnter} >Enter</button>}
+    {welcome && !showGameOver && <button className="EndGame" onClick={() => setWelcome(false)} >Enter</button>}
     {showGameOver && <GameOver score={score} />}
     {!welcome && <div className="Row">
     {contents && contents.quizlist.map((question, questionIndex) => (<Card key={questionIndex} index={questionIndex} correct={question.correct} quiz={question.quiz} options={question.option} updateScore={updateScore} />))}
