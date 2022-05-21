@@ -21,6 +21,7 @@ const GameOver = ({score}) => {
       <h4>Reload the page if you would like to play again.</h4>
       </div>
     )
+    document.getElementById("popup").scrollIntoView({behavior: "smooth"})
   }
 }
 

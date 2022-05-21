@@ -41,12 +41,15 @@ useEffect(() => {
 const updateScore = () => {
   setScore(score + 1);
 }
+const pressEnter = () => {
+  setWelcome(false);
+};
 console.log(score);
   return (
     <>
     <div className="App">
     <h1>Word Quiz Game</h1>
-    {!showGameOver && <p>Pick a level to play!</p>}
+    {!showGameOver && welcome && <p>Pick a level to play!</p>}
     {!welcome && !showGameOver && <p>Your current score is {score}</p>}
     {!showGameOver && welcome && <select className="LevelMenu" id="LevelMenu" onChange={(e) => setLevel(e.target.value)}>
     <option value={"1"}>Level 1</option>
@@ -61,6 +64,7 @@ console.log(score);
     <option value={"10"}>Level 10</option>
     </select>}
     {welcome && !showGameOver && <h1>Please choose a level and press Enter to play.</h1>}
+    {welcome && !showGameOver && <button className="EndGame" onClick={pressEnter} >Enter</button>}
     {showGameOver && <GameOver score={score} />}
     {!welcome && <div className="Row">
     {contents && contents.quizlist.map((question, questionIndex) => (<Card key={questionIndex} index={questionIndex} correct={question.correct} quiz={question.quiz} options={question.option} updateScore={updateScore} />))}
