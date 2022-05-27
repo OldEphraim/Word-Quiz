@@ -30,7 +30,7 @@ const getGameplayWords = () => {
 };
 useEffect(() => {
   getGameplayWords();
-}, [level])
+}, [welcome])
 useEffect(() => {
   window.scroll({
     top: 0,
