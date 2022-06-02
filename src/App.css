@@ -21,19 +21,21 @@
   cursor: pointer;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1000px) {
   .Row {
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 }
 
-@media only screen and (max-width: 76px) {
+@media only screen and (max-width: 1000px) {
   .Row {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 }

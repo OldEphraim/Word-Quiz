@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1000px) {
 .Card {
   margin: 10px;
   background-color: antiquewhite;
@@ -22,9 +22,9 @@
 }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1000px) {
   .Card {
-    margin: 10px;
+    margin: 10px auto 10px auto;
     background-color: antiquewhite;
     padding: 10px;
     border-radius: 20px;
